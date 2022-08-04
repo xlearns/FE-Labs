@@ -1,0 +1,16 @@
+{
+  "name": "hand-monorepo-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+     "dev":"npx esno packages/main/index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@module/a": "workspace:^1.0.0",
+    "@module/b": "workspace:^1.0.0",
+    "typescript": "^4.7.4"
+  }
+}
