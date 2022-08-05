@@ -1,0 +1,16 @@
+
+@use 'sass:math';
+@use 'sass:map';
+
+$color:() !default;
+$color:map.deep-merge((
+  'white': #ffffff,
+  'black': #000000,
+  'primary': (
+    'base': #409eff,
+  )
+), $color);
+
+$color-white:map.get($color, 'white');
+$color-black:map.get($color, 'black');
+$color-primary:map.get($color, 'primary','base');

@@ -1,0 +1,9 @@
+@use 'sass:map';
+@use 'sass:math';
+@use "../common/var" as *;
+@use "mixins" as *;
+
+:root {
+  @include set-css-var-value('color-white', $color-white);
+  @include set-css-var-value('color-black', $color-black);
+}

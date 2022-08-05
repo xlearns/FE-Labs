@@ -1,4 +1,8 @@
-@use './base.scss' as *;
+@use 'sass:map';
+@use "common/var" as *;
+@use "mixins/function" as *;
+
 .moduleB{
-  color:$while;
+  color:getCssVar('color',"white"),
+
 }

@@ -1,4 +1,9 @@
-@use './base.scss' as *;
+@use 'sass:map';
+@use "mixins/function" as *;
+@use "mixins/mixins" as *;
+@use "common/var" as *;
+
 .moduleA{
-  color:$red
+  @include set-css-var-value('color-primary', $color-white);
+  color:getCssVar('color',"primary")
 }

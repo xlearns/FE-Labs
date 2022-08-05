@@ -46,3 +46,34 @@
 
 # [TS，找不到名称“__dirname”]
 - `npm install --save-dev @types/node`
+
+
+# scss总结
+## @function
+- 作用: 定义一个函数
+- 有计算逻辑，返回计算的结果，不输出css块
+- 示例：
+    @function mixin($color) {
+      @return $color;
+    }
+    .mixin {
+      color: mixin(#ff0000);
+    }
+
+## @mixin
+- 作用: 定义一个mixin
+- mixin主要是计算根据计算结果输出css块
+- 示例：
+```
+    @mixin button-border($color) {
+      border: 1px solid $color;
+    }
+```
+
+
+## scss数组
+- 使用:`()`
+
+# scss中map
+- map.deep-merge
+  - 作用: 合并两个map

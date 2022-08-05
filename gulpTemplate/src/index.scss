@@ -1,4 +1,3 @@
-@use './base.scss';
-@use './css-vars.scss';
-@use './moduleA.scss';
-@use './moduleB.scss';
+@use 'base';
+@use 'moduleA';
+@use 'moduleB';
