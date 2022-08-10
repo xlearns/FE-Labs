@@ -1,0 +1,145 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 5,
+    "total": 5,
+    "workspacePrefix": "/wanxin/lab"
+  },
+  "1 debug pnpm:package-manifest": {
+    "initial": {
+      "name": "lab",
+      "version": "1.0.0",
+      "description": "",
+      "main": "index.js",
+      "scripts": {
+        "create": "bash scripts/monorepo-create.sh"
+      },
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/xlearns/FE-Labs.git"
+      },
+      "author": "",
+      "license": "ISC",
+      "bugs": {
+        "url": "https://github.com/xlearns/FE-Labs/issues"
+      },
+      "homepage": "https://github.com/xlearns/FE-Labs#readme"
+    },
+    "prefix": "/wanxin/lab"
+  },
+  "2 debug pnpm:package-manifest": {
+    "initial": {
+      "name": "fast-build",
+      "version": "1.0.0",
+      "description": "",
+      "main": "index.js",
+      "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "keywords": [],
+      "author": "",
+      "license": "ISC"
+    },
+    "prefix": "/wanxin/lab/packages/fast-build"
+  },
+  "3 debug pnpm:package-manifest": {
+    "initial": {
+      "name": "gulptemplate",
+      "version": "1.0.0",
+      "description": "",
+      "scripts": {
+        "dev": "pnpm run clean:dist && gulp --require @esbuild-kit/cjs-loader",
+        "clean:dist": "rimraf dist"
+      },
+      "keywords": [],
+      "author": "",
+      "license": "ISC",
+      "devDependencies": {
+        "consola": "^2.15.3",
+        "gulp": "^4.0.2",
+        "gulp-autoprefixer": "^8.0.0",
+        "gulp-clean-css": "^4.3.0",
+        "gulp-rename": "^2.0.0",
+        "gulp-sass": "^5.1.0",
+        "sass": "^1.54.2",
+        "typescript": "^4.7.4"
+      },
+      "engines": {
+        "node": ">= 16"
+      },
+      "dependencies": {
+        "@esbuild-kit/cjs-loader": "^2.3.2",
+        "@types/node": "^18.6.3",
+        "path": "^0.12.7",
+        "rimraf": "^3.0.2"
+      }
+    },
+    "prefix": "/wanxin/lab/packages/gulpTemplate"
+  },
+  "4 debug pnpm:package-manifest": {
+    "initial": {
+      "scripts": {
+        "dev": "vite"
+      },
+      "dependencies": {
+        "vite": "^3.0.4"
+      },
+      "devDependencies": {
+        "@vitejs/plugin-vue": "^3.0.1",
+        "typescript": "^4.7.4",
+        "vue": "^3.2.36"
+      }
+    },
+    "prefix": "/wanxin/lab/packages/hand-vite-template"
+  },
+  "5 debug pnpm:package-manifest": {
+    "initial": {
+      "name": "hand-monorepo-template",
+      "version": "1.0.0",
+      "description": "",
+      "main": "index.js",
+      "scripts": {
+        "dev": "npx esno packages/main/index.ts"
+      },
+      "author": "",
+      "license": "ISC",
+      "devDependencies": {
+        "@module/a": "workspace:^1.0.0",
+        "@module/b": "workspace:^1.0.0",
+        "typescript": "^4.7.4"
+      }
+    },
+    "prefix": "/wanxin/lab/packages/hand-monorepo-template"
+  },
+  "6 debug pnpm:context": {
+    "currentLockfileExists": false,
+    "storeDir": "/root/.pnpm-store/v3",
+    "virtualStoreDir": "/wanxin/lab/node_modules/.pnpm"
+  },
+  "7 debug pnpm:stage": {
+    "prefix": "/wanxin/lab",
+    "stage": "resolution_started"
+  },
+  "8 debug pnpm:_dependency_resolved": {
+    "resolution": "registry.npmjs.org/gulp-rename/2.0.0",
+    "wanted": {
+      "dependentId": "packages/gulpTemplate",
+      "name": "gulp-rename",
+      "rawSpec": "^2.0.0"
+    }
+  },
+  "9 debug pnpm:progress": {
+    "packageId": "registry.npmjs.org/gulp-rename/2.0.0",
+    "requester": "/wanxin/lab",
+    "status": "resolved"
+  },
+  "10 error pnpm": {
+    "code": "ERR_PNPM_NO_MATCHING_VERSION_INSIDE_WORKSPACE",
+    "pkgsStack": [],
+    "err": {
+      "name": "pnpm",
+      "message": "In ../hand-monorepo-template: No matching version found for @module/a@^1.0.0 inside the workspace",
+      "code": "ERR_PNPM_NO_MATCHING_VERSION_INSIDE_WORKSPACE",
+      "stack": "pnpm: In ../hand-monorepo-template: No matching version found for @module/a@^1.0.0 inside the workspace\n    at tryResolveFromWorkspace (/mnt/d/nodejs/node_global/node_modules/pnpm/dist/pnpm.cjs:85736:15)\n    at resolveNpm (/mnt/d/nodejs/node_global/node_modules/pnpm/dist/pnpm.cjs:85627:39)\n    at Object.resolve (/mnt/d/nodejs/node_global/node_modules/pnpm/dist/pnpm.cjs:85859:40)\n    at ctx.requestsQueue.add.priority (/mnt/d/nodejs/node_global/node_modules/pnpm/dist/pnpm.cjs:71784:75)\n    at run (/mnt/d/nodejs/node_global/node_modules/pnpm/dist/pnpm.cjs:71500:90)\n    at PQueue._tryToStartAnother (/mnt/d/nodejs/node_global/node_modules/pnpm/dist/pnpm.cjs:71454:13)\n    at PQueue._next (/mnt/d/nodejs/node_global/node_modules/pnpm/dist/pnpm.cjs:71403:14)\n    at run (/mnt/d/nodejs/node_global/node_modules/pnpm/dist/pnpm.cjs:71510:18)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+    }
+  }
+}

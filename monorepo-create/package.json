@@ -1,0 +1,22 @@
+{
+  "name": "monorepo-create",
+  "version": "0.0.0",
+  "description": "",
+  "main": "bin/index.js",
+  "bin": "bin/index.js",
+  "scripts": {
+    "start": "npm link"
+  },
+  "files": [
+    "bin",
+    "README.md"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "inquirer": "^9.1.0",
+    "path": "^0.12.7",
+    "shelljs": "^0.8.5"
+  }
+}
