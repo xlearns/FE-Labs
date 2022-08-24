@@ -5,15 +5,22 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "ssr":"esno server",
+    "dev:ssr": "cross-env NODE_ENV=development esno ssr",
     "build": "vue-tsc --noEmit && vite build",
+    "build:ssr": "vue-tsc --noEmit && vite build",
+    "prod:ssr": "",
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.37"
+    "vue": "^3.2.37",
+    "vue-router": "^4.1.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.0.3",
+    "@vue/server-renderer": "^3.2.37",
+    "cross-env": "^7.0.3",
+    "esno": "^0.16.3",
+    "express": "^4.18.1",
     "typescript": "^4.6.4",
     "vite": "^3.0.7",
     "vue-tsc": "^0.39.5"
