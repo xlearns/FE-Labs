@@ -5,3 +5,9 @@ export function oMousePos(dom:HTMLElement,evt: MouseEvent){
       y: Math.round(evt.clientY - ClientRect.top)
     }
 }
+
+export function cursorInRect(mouseX, mouseY, rectX, rectY, rectW, rectH){
+  let xLine = mouseX > rectX && mouseX < rectX + rectW
+  let yLine = mouseY > rectY && mouseY < rectY + rectH
+  return xLine && yLine
+}

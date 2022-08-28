@@ -3,6 +3,7 @@ import { $ref } from 'vue/macros'
 import {onMounted,ref} from 'vue'
 import type {op_config} from './types'
 import {useCanvasDrag} from '@/hooks/useCanvasDrag'
+import {Rect} from '@/graph/rect'
 let dom= ref<HTMLCanvasElement|null>(null)
 let ctx:CanvasRenderingContext2D | null = $ref()
 let config:op_config = $ref()
@@ -38,8 +39,9 @@ function init(){
 }
   
 function main(){
-  createRect({c:"#fff",x:100,y:100})
-  createRect({c:"#fff",x:200,y:200})
+  Array.from({length:10},(v,i)=>{
+    return new Rect({c:"#fff",x:i*50,y:i*50}).draw(ctx)
+  })
 }
   
 onMounted(async ()=>{
