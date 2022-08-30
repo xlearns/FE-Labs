@@ -6,23 +6,29 @@
   "scripts": {
     "dev": "vite",
     "dev:ssr": "cross-env NODE_ENV=development esno ssr",
-    "build": "vue-tsc --noEmit && vite build",
-    "build:ssr": "vue-tsc --noEmit && vite build",
+    "build": "rimraf dist && vite build",
+    "build:ssr": "rimraf dist  &&  npm run build:client && npm run build:server",
+    "build:client": "vite build --ssrManifest --outDir dist/client",
+    "build:server": "vite build --ssr entry-server --outDir dist/server",
     "prod:ssr": "",
     "preview": "vite preview"
   },
   "dependencies": {
+    "element-plus": "^2.2.15",
     "vue": "^3.2.37",
     "vue-router": "^4.1.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.0.3",
     "@vue/server-renderer": "^3.2.37",
+    "chalk": "^5.0.1",
     "cross-env": "^7.0.3",
     "esno": "^0.16.3",
     "express": "^4.18.1",
+    "rimraf": "^3.0.2",
     "typescript": "^4.6.4",
     "vite": "^3.0.7",
+    "vite-plugin-ssr": "^0.4.28",
     "vue-tsc": "^0.39.5"
   }
 }
