@@ -5,6 +5,8 @@ const path =import("path")
 
 const shell = import('shelljs')
 
+const n = process.argv[2];
+
 const ans = [{
   name: "name",
   type: "input",
@@ -15,10 +17,13 @@ const ans = [{
 async function init(){
     const {exec} = (await shell).default
     const {resolve} = (await path)
-    let {name} = await ((await inquirer).default).prompt(ans)
+    let filename = n 
+    if(!filename){
+      const {name} =  await ((await inquirer).default).prompt(ans)
+      filename = name
+    }
     const url = resolve(__dirname,'script/monorepo-create.sh')
-    exec(`bash ${url} ${name}`);
-    // console.log("下载完成")
+    exec(`bash ${url} ${filename}`);
 }
 
 init()
