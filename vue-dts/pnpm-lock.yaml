@@ -5,6 +5,7 @@ importers:
   .:
     specifiers:
       '@vue/tsconfig': ^0.1.3
+      consola: ^2.15.3
       esno: ^0.16.3
       fast-glob: ^3.2.12
       ts-morph: ^16.0.0
@@ -15,6 +16,7 @@ importers:
       typescript: 4.8.3
       vitest: 0.21.1
     devDependencies:
+      consola: 2.15.3
       esno: 0.16.3
       fast-glob: 3.2.12
       ts-morph: 16.0.0
@@ -298,6 +300,10 @@ packages:
 
   /code-block-writer/11.0.3:
     resolution: {integrity: sha512-NiujjUFB4SwScJq2bwbYUtXbZhBSlY6vYzm++3Q6oC+U+injTqfPYFK8wS9COOmb2lueqp0ZRB4nK1VYeHgNyw==}
+    dev: true
+
+  /consola/2.15.3:
+    resolution: {integrity: sha512-9vAdYbHj6x2fLKC4+oPH0kFzY/orMZyG2Aj+kNylHxKGJ/Ed4dpNyAQYwJOdqO4zdM7XpVHmyejQDcQHrnuXbw==}
     dev: true
 
   /csstype/2.6.20:
