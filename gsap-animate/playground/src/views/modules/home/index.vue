@@ -10,17 +10,30 @@ const path2 = $ref(
   "M381.220,6.042 C371.368,10.520 230.144,102.366 230.144,102.366 L59.000,4.000 L1.000,39.000"
 );
 
+const path3 = $ref("M553.569,32.188 L159.786,284.247 L4.646,194.838 ");
+
 function finish(cur) {
   console.log(cur, "动画完成");
 }
 const duration = 2;
 
 function animte(name?) {
-  const s = !name ? "#two" : "#rocket-path";
-  const methods = name ? "to" : "from";
+  let s = "";
+  let repeat = -1;
+  if (name == 0) {
+    s = "#two";
+    repeat = 1;
+  } else if (name == 1) {
+    s = "#rocket-path";
+    repeat = -1;
+  } else {
+    s = "#three";
+    repeat = 1;
+  }
+  const methods = repeat < 0 ? "to" : "from";
   gsap[methods]("#rocket", {
     duration: duration,
-    repeat: -1,
+    repeat: repeat,
     ease: Linear.easeNone,
     direction: 180,
     motionPath: {
@@ -36,7 +49,7 @@ function animte(name?) {
 }
 let i = $ref(0);
 function fn() {
-  i = ++i % 2;
+  i = ++i % 3;
   animte(i);
 }
 onMounted(() => {
@@ -232,6 +245,82 @@ onMounted(() => {
           d="M322.920,40.501 L313.126,55.192 L312.310,47.847 L304.149,44.582 L322.920,40.501 Z"
         />
       </g>
+    </svg>
+
+    <svg
+      viewBox="0 0 500 400"
+      width="500"
+      height="400"
+      class="absolute right-0 top-0"
+    >
+      <path
+        fill-rule="evenodd"
+        stroke="rgb(120, 250, 255)"
+        stroke-width="2px"
+        stroke-dasharray="16, 40"
+        stroke-linecap="round"
+        stroke-linejoin="miter"
+        fill-opacity="0"
+        fill="rgb(255, 255, 255)"
+        :d="path3"
+        id="three"
+      />
+
+      <path
+        fill-rule="evenodd"
+        fill="rgb(53, 248, 255)"
+        d="M213.559,249.068 L204.085,263.280 L203.295,256.174 L195.400,253.016 L213.559,249.068 Z"
+      />
+      <path
+        fill-rule="evenodd"
+        fill="rgb(53, 248, 255)"
+        d="M357.559,156.068 L348.085,170.280 L347.295,163.174 L339.400,160.016 L357.559,156.068 Z"
+      />
+      <path
+        fill-rule="evenodd"
+        fill="rgb(53, 248, 255)"
+        d="M518.559,54.068 L509.085,68.280 L508.295,61.174 L500.400,58.016 L518.559,54.068 Z"
+      />
+      <path
+        fill-rule="evenodd"
+        stroke="rgb(93, 249, 255)"
+        stroke-width="1px"
+        stroke-dasharray="2, 4"
+        stroke-linecap="round"
+        stroke-linejoin="miter"
+        fill="rgb(93, 249, 255)"
+        d="M23.038,204.849 L23.038,197.658 L31.667,209.882 L15.128,207.725 L23.038,204.849 Z"
+      />
+      <path
+        fill-rule="evenodd"
+        stroke="rgb(93, 249, 255)"
+        stroke-width="1px"
+        stroke-dasharray="2, 4"
+        stroke-linecap="round"
+        stroke-linejoin="miter"
+        fill="rgb(93, 249, 255)"
+        d="M54.206,222.404 L54.206,215.970 L61.927,226.908 L47.128,224.978 L54.206,222.404 Z"
+      />
+      <path
+        fill-rule="evenodd"
+        stroke="rgb(93, 249, 255)"
+        stroke-width="1px"
+        stroke-dasharray="2, 4"
+        stroke-linecap="round"
+        stroke-linejoin="miter"
+        fill="rgb(93, 249, 255)"
+        d="M137.206,270.404 L137.206,263.970 L144.927,274.908 L130.128,272.978 L137.206,270.404 Z"
+      />
+      <path
+        fill-rule="evenodd"
+        stroke="rgb(120, 250, 255)"
+        stroke-width="2px"
+        stroke-dasharray="16, 40"
+        stroke-linecap="round"
+        stroke-linejoin="miter"
+        fill="none"
+        d="M552.046,5.707 L552.276,31.571 "
+      />
     </svg>
   </div>
 </template>
