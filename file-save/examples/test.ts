@@ -1,5 +1,5 @@
 import { fileSave } from "../packages/fs";
-
+import { writeFileSync } from "fs";
 let template = `
 <script setup lang=ts>
  import {ref} from 'vue'
@@ -23,3 +23,6 @@ fileSave("dist/test.vue")
 fileSave("dist/aaa.vue")
 	.write(template, "utf8")
 	.finish(() => {});
+
+//当路径的文件夹存在
+//writeFileSync("dist/test.vue",template)
