@@ -1,0 +1,16 @@
+{
+  "name": "nitro-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nitro dev",
+    "build": "nitro build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nitropack": "^0.6.0"
+  }
+}
