@@ -9,9 +9,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.2.37",
+    "@element-plus/icons-vue": "^2.0.10",
+    "@vueuse/core": "^9.3.1",
     "element-plus": "^2.2.19",
-    "@element-plus/icons-vue": "^2.0.10"
+    "vue": "^3.2.37"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.1.0",
