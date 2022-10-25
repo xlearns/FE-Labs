@@ -57,3 +57,4 @@ http {
 - 根据env.production文件 生成dist.conf
 - 将需要的环境导入docker中
 - 改成nodejs版本
+- 扫描项目根目录ng.config.ts配置文件获取，入口、出口、端口号等 
