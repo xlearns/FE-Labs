@@ -1,45 +1,65 @@
-import { resolve } from "path";
-import { readFile } from "fs/promises";
-import { transform } from "@swc/core";
-import { existSync } from "./utils";
+import { resolve, extname } from "path";
+import { existSync, log } from "./utils";
+import { createRequire } from "module";
+import _default from "./../config/ng.config";
+import { promises as fs } from "fs";
+
+const require = createRequire(import.meta.url);
 
 const root = process.cwd();
 
-/**
- * fork:https://github.com/nonzzz/no-bump/blob/master/src/cli-impl.ts#L45
- */
-function load(filename) {
-	const { default: _default } = require(filename);
+function createNginxConfig(config) {
+  const str = `
+  server {
+    listen       ${config["port"]};
+    server_name  localhost;
+    error_page  405     =200 $uri;
+    
+    location / {
+      root   ${config["output"]};
+      try_files  $uri $uri/ @router;
+      autoindex on;       
+      autoindex_exact_size off;   
+      charset utf-8;        
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header X-Forwarded-Proto $scheme;
+      index  index.html index.htm;
+    }
+${config["proxy"].map(([key, val]) => {
+  return `
+    location ${key}{
+      rewrite ^${key}/(.*)$ /$1 break;
+      proxy_pass  ${val};
+    }
+    `;
+})}
+    location @router{
+      rewrite ^.*$ /index.html last;
+    }
+  }
+  `;
+  return str;
+}
+async function markConf(config) {
+  const _p = resolve(root, config["input"]);
+  const path_dist = resolve(_p, "dist.conf");
+  const data = createNginxConfig(config);
+  await fs.writeFile(path_dist, data).catch((err) => {
+    throw new Error(err);
+  });
 
-	const attrs = [
-		{ name: "input", def: "./dist" },
-		{ name: "port", def: 5173 },
-		{ name: "output", def: "/output/" },
-	] as const;
-
-	attrs.forEach((attr) => {
-		if (typeof attr == "object" && typeof attr != null) {
-			console.log(_default[attr.name] || _default[attr.def]);
-		}
-	});
+  log("config generate finish");
 }
 
 async function main() {
-	const _file = resolve(root, "ng.config.ts");
-
-	if (!existSync(_file)) return;
-
-	const file = await readFile(_file, "utf-8");
-	await transform(file, {
-		filename: _file,
-		isModule: "unknown",
-		sourceMaps: false,
-		module: {
-			type: "commonjs",
-		},
-	});
-
-	load(_file);
+  let config = _default;
+  let _file = resolve(root, "ng.config.ts");
+  if (existSync(_file)) {
+    const { default: _ } = require(_file);
+    config = Object.assign({}, _default, _);
+  }
+  markConf(config);
 }
 
-// main();
+main();

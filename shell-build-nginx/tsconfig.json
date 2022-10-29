@@ -1,17 +1,17 @@
 {
-	"extends": "@vue/tsconfig/tsconfig.web.json",
-	"include": ["packages", "typings"],
-	"exclude": ["node_modules", "**/dist", "**/__tests__/**/*"],
-	"compilerOptions": {
-		"allowJs": true,
-		"module": "ES6",
-		"target": "ES2018",
-		"noImplicitAny": false,
-		"declaration": true,
-		"sourceMap": true,
-		"lib": ["ES2018", "DOM", "DOM.Iterable"],
-		"allowSyntheticDefaultImports": true,
-		"types": ["node"],
-		"moduleResolution": "node"
-	}
+  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "include": ["packages", "typings"],
+  "exclude": ["node_modules", "**/dist", "**/__tests__/**/*"],
+  "compilerOptions": {
+    "allowJs": true,
+    "module": "ESNext",
+    "target": "ESNext",
+    "noImplicitAny": false,
+    "declaration": true,
+    "sourceMap": true,
+    "lib": ["ES2018", "DOM", "DOM.Iterable"],
+    "allowSyntheticDefaultImports": true,
+    "types": ["node"],
+    "moduleResolution": "node"
+  }
 }
