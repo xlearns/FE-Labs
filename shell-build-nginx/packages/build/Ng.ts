@@ -1,10 +1,6 @@
-import { resolve, extname } from "path";
-import { existSync, log } from "./utils";
-import { createRequire } from "module";
-import _default from "./../config/ng.config";
+import { resolve } from "path";
+import { log } from "./utils";
 import { promises as fs } from "fs";
-
-const require = createRequire(import.meta.url);
 
 const root = process.cwd();
 
@@ -52,14 +48,4 @@ async function markConf(config) {
   log("config generate finish");
 }
 
-async function main() {
-  let config = _default;
-  let _file = resolve(root, "ng.config.ts");
-  if (existSync(_file)) {
-    const { default: _ } = require(_file);
-    config = Object.assign({}, _default, _);
-  }
-  markConf(config);
-}
-
-main();
+export default markConf;

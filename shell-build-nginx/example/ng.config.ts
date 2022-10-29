@@ -1,5 +1,5 @@
 export default {
-  port: 8848,
-  output: "/test",
+  port: 1234,
   input: "dist",
+  output: "word",
 };
