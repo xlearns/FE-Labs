@@ -22,14 +22,16 @@ function createNginxConfig(config) {
       proxy_set_header X-Forwarded-Proto $scheme;
       index  index.html index.htm;
     }
-${config["proxy"].map(([key, val]) => {
-  return `
+${config["proxy"]
+  .map(([key, val]) => {
+    return `
     location ${key}{
       rewrite ^${key}/(.*)$ /$1 break;
       proxy_pass  ${val};
     }
     `;
-})}
+  })
+  .join(" ")}
     location @router{
       rewrite ^.*$ /index.html last;
     }

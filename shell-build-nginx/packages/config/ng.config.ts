@@ -3,5 +3,10 @@ export default {
   output: "/test",
   input: "dist",
   proxy: [["/api", "http://localhost"]],
-  nginx: "",
+  command: [
+    "iptables -I INPUT -p tcp --dport var(port) -j ACCEPT",
+    "systemctl start nginx.service",
+    "systemctl reload nginx.service",
+    "netstat -nap | grep 80",
+  ],
 };
