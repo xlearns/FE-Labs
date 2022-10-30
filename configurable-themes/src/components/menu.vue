@@ -42,7 +42,7 @@ defineProps({
       </el-menu-item-group>
       <el-sub-menu index="1-4">
         <template #title>item four</template>
-        <el-menu-item index="1-4-1">item one</el-menu-item>
+        <el-menu-item :index="`1-4-${index+1}`" :key='index' v-for='(item,index) in 6'>item {{index}}</el-menu-item>
       </el-sub-menu>
     </el-sub-menu>
     <el-menu-item index="2">
