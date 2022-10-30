@@ -1,10 +1,11 @@
-import { mv, chmod, exec } from "shelljs";
+import shell from "shelljs";
 import { log } from "./utils";
 
+const { mv, chmod, exec } = shell;
 export default (config) => {
   const { input, output, port } = config;
   mv(input, output);
-  log("move finish");
+  log.success("move finish");
   chmod(777, output);
   //开放端口
   exec(`iptables -I INPUT -p tcp --dport ${port} -j ACCEPT`);

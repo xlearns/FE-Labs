@@ -45,7 +45,7 @@ async function markConf(config) {
     throw new Error(err);
   });
 
-  log("config generate finish");
+  log.success("config generate finish");
 }
 
 export default markConf;

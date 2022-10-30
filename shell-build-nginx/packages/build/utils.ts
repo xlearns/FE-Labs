@@ -10,6 +10,19 @@ export const existSync = (path: string) => {
   }
 };
 
-export const log = (_) => {
-  console.log(chalk.green(_));
-};
+const status = [
+  ["error", "red"],
+  ["success", "green"],
+  ["warning", "yellow"],
+];
+
+export const log = Object.fromEntries(
+  status.map(([key, val]) => {
+    return [
+      key,
+      (_) => {
+        console.log(chalk[val](_));
+      },
+    ];
+  })
+);

@@ -9,7 +9,7 @@
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
   "scripts": {
-    "dev": "esno packages",
+    "dev": "esno packages/index",
     "build": "rm -rf dist && tsup packages --format esm --target node14"
   },
   "dependencies": {
