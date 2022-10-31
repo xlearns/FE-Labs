@@ -1,6 +1,6 @@
 module.exports = {
 	port: 8080,
-	input: "test",
+	input: "lib",
 	output: "word",
 	proxy: [
 		["/api", "http://localhost"],
