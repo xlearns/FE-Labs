@@ -4,9 +4,11 @@ export default {
   input: "dist",
   proxy: [["/api", "http://localhost"]],
   command: [
+    "systemctl stop firewalld.service",
+    "lsof -i :var(port)|grep -v 'PID'|awk '{print 'kill -9',$2}'|sh",
     "iptables -I INPUT -p tcp --dport var(port) -j ACCEPT",
     "systemctl start nginx.service",
     "systemctl reload nginx.service",
-    "netstat -nap | grep 80",
+    "netstat -nap | grep var(port)",
   ],
 };
