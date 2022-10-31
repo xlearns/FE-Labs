@@ -10,8 +10,8 @@ const root = process.cwd();
 let config = _default;
 let _file = resolve(root, "ng.config.ts");
 if (existSync(_file)) {
-  const { default: _ } = require(_file);
-  config = Object.assign({}, _default, _);
+	const _ = require(_file);
+	config = Object.assign({}, _default, _);
 }
 
 export const Ci = () => _Ci(config);

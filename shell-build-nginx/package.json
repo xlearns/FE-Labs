@@ -1,6 +1,5 @@
 {
   "name": "shell-build-nginx",
-  "type": "module",
   "packageManager": "pnpm@6.26.1",
   "version": "0.0.0",
   "description": "",
@@ -8,19 +7,24 @@
   "types": "dist/index.d.ts",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
+  "bin": {
+    "bn": "./bin/bn.js"
+  },
   "scripts": {
     "dev": "esno packages/index",
-    "build": "rm -rf dist && tsup packages --format esm --target node14"
+    "build": "rm -rf dist && tsup"
   },
   "dependencies": {
     "@types/node": "^18.11.5",
     "@vue/tsconfig": "^0.1.3",
-    "chalk": "^5.1.2",
+    "cac": "^6.7.14",
+    "chalk": "4.1.2",
     "esno": "^0.16.3",
+    "inquirer": "6.1.0",
     "shelljs": "^0.8.5",
+    "tsup": "5.11.9",
     "typescript": "^4.7.4",
-    "vitest": "^0.21.0",
-    "tsup": "5.11.9"
+    "vitest": "^0.21.0"
   },
   "engines": {
     "node": ">=16"
