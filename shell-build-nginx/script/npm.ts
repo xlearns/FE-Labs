@@ -1,0 +1,11 @@
+import path from "path";
+import shell from "shelljs";
+import { promises as fs } from "fs";
+const output = "npm";
+const input = "dist";
+const { exec, cp } = shell;
+exec(`rm -rf ${output}`);
+exec(`mkdir ${output}`);
+cp("-R", input, output);
+cp("-R", "bin", output);
+cp("-R", "package.json", output);

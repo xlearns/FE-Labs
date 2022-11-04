@@ -12,7 +12,8 @@
   },
   "scripts": {
     "dev": "esno packages/index",
-    "build": "rm -rf dist && tsup"
+    "build": "rm -rf dist && tsup",
+    "npm":"npm run build && esno script/npm.ts"
   },
   "dependencies": {
     "@types/node": "^18.11.5",
