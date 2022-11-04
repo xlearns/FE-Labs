@@ -4,6 +4,6 @@ export default defineConfig({
 	entry: ["packages"],
 	clean: true,
 	dts: false,
-	outDir: "dist",
+	outDir: "lib",
 	format: ["cjs", "esm"],
 });
